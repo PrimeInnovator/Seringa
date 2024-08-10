@@ -1,18 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
+    <!-- Define configuration and platform if not specified -->
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+
+    <!-- Update product version and project schema -->
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
+
+    <!-- Unique project identifier -->
     <ProjectGuid>{C9D3B8F5-28B4-4CE0-B3CB-71D8767ADCBB}</ProjectGuid>
+
+    <!-- Output file type (library) -->
     <OutputType>Library</OutputType>
+
+    <!-- Main project settings -->
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Seringa.Engine</RootNamespace>
     <AssemblyName>Seringa.Engine</AssemblyName>
+
+    <!-- Target .NET Framework version -->
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
+
+  <!-- Debug configuration settings -->
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -22,6 +35,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+
+  <!-- Release configuration settings -->
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
@@ -30,6 +45,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+
+  <!-- References to required libraries -->
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.4.5.9\lib\net40\Newtonsoft.Json.dll</HintPath>
@@ -43,6 +60,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
+
+  <!-- Compilation settings for specific source files -->
   <ItemGroup>
     <Compile Include="DataObjects\IpObtainerDetails.cs" />
     <Compile Include="DataObjects\PatternDetails.cs" />
@@ -94,17 +113,24 @@
     <Compile Include="Utils\SocksHttpWebResponse.cs" />
     <Compile Include="Utils\UrlHelpers.cs" />
   </ItemGroup>
+
+  <!-- Folder structure for implementation files -->
   <ItemGroup>
     <Folder Include="Implementations\Exploit\" />
     <Folder Include="Implementations\ScannerStrategies\" />
     <Folder Include="Implementations\TesterStrategies\" />
   </ItemGroup>
+
+  <!-- Additional files such as configuration -->
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+
+  <!-- Import C# build targets -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
+
+  <!-- Custom build steps can be added here -->
+  <!--
   <Target Name="BeforeBuild">
   </Target>
   <Target Name="AfterBuild">
